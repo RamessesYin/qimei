@@ -1,0 +1,27 @@
+#heart{
+    position: relative;
+    width: 30px;
+    height: 27px;
+  }
+  #heart:after,
+  #heart:before{
+    position: absolute;
+    content: "";
+    left: 15px;
+    top: 0;
+    width: 15px;
+    height: 24px;
+    background: red;
+    border-radius: 7.5px 7.5px 0 0;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+  }
+  #heart:after{
+    left: 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
+  }

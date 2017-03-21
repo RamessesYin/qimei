@@ -1,0 +1,201 @@
+
+<p style="font-family:黑体;font-weight:bold;color: #b2b2b2;" align="center">{{name}}物品列表</p>
+
+
+
+<div>
+
+
+
+
+  <div class="row">
+    <div class="col-xs-4 col-md-4" >
+     <img ng-show="mergeObject" src={{FILE_URL}}{{mergeObject.object_pic}} ng-click="cancel_set()" style="height:90px;width:75px"/>
+        <div class="row">
+      <div class="btn-group" data-toggle="buttons">   
+                  <button class="btn btn-primary" ng-click="merge()">合并到</button>
+            </div>  
+      </div>
+     <div class="row">
+     &nbsp;
+     </div>
+     </div>
+</div>  
+<div class="row">
+      <div class="col-xs-4 col-md-2" ng-repeat="object in selectedObjects">
+       
+      <div class="row">       
+          <img src="{{FILE_URL}}{{object.object_pic}}"   ng-click="setObject(object,$index)" id="relate_pic_{{object.object_id}}" style="height:90px;width:75px"/>    
+      </div>
+       <div class="row">
+      <div class="btn-group" data-toggle="buttons">   
+                  <button class="btn btn-primary" ng-click="delObject(object,$index)">取消</button>
+            </div>  
+      </div>
+      <div class="row">
+      &nbsp;
+      </div>
+   
+      </div>
+    </div>
+</div>
+  
+
+  <div class="row">
+      <div class="col-xs-6 col-md-3">
+      <div class="row">
+        <div class="col-xs-4">
+         <p style="font-family:楷体;font-weight:900;color:  #87CEFF;">
+          物品图片
+           </p>
+        </div>
+
+     <div class="col-xs-1">
+          <div>
+                 &nbsp;
+        </div>        
+      </div>
+
+        <div class="col-xs-6">
+          <p style="font-family:楷体;font-weight:900;color: #CD69C9;">
+                商品图片
+        </p>        
+      </div>
+
+     
+
+    </div>
+
+</div>
+           <div class="col-xs-6 col-md-3">
+      <div class="row">
+        <div class="col-xs-4">
+         <p style="font-family:楷体;font-weight:900;color:  #87CEFF;">
+          物品图片
+           </p>
+        </div>
+
+     <div class="col-xs-1">
+          <div>
+                 &nbsp;
+        </div>        
+      </div>
+
+        <div class="col-xs-6">
+          <p style="font-family:楷体;font-weight:900;color: #CD69C9;">
+                商品图片
+        </p>        
+      </div>
+
+     
+
+    </div>
+
+</div>
+      <div class="col-xs-6 col-md-3">
+      <div class="row">
+        <div class="col-xs-4">
+         <p style="font-family:楷体;font-weight:900;color:  #87CEFF;">
+          物品图片
+           </p>
+        </div>
+
+     <div class="col-xs-1">
+          <div>
+                 &nbsp;
+        </div>        
+      </div>
+
+        <div class="col-xs-6">
+          <p style="font-family:楷体;font-weight:900;color: #CD69C9;">
+                商品图片
+        </p>        
+      </div>
+
+     
+
+    </div>
+
+</div>
+      <div class="col-xs-6 col-md-3">
+      <div class="row">
+        <div class="col-xs-4">
+         <p style="font-family:楷体;font-weight:900;color:  #87CEFF;">
+          物品图片
+           </p>
+        </div>
+
+     <div class="col-xs-1">
+          <div>
+                 &nbsp;
+        </div>        
+      </div>
+
+        <div class="col-xs-6">
+          <p style="font-family:楷体;font-weight:900;color: #CD69C9;">
+                商品图片
+        </p>        
+      </div>
+
+     
+
+    </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="row">
+      <div class="col-xs-6 col-md-3" ng-repeat="object in curObjects">
+      <div class="row">
+        <div class="col-xs-4">
+          <img src="{{FILE_URL}}{{object.object_pic}}" ng-click="selectObject(object,$index)" id="object_pic_{{object.object_id}}" style="height:90px;width:75px"/>
+        </div>
+
+     <div class="col-xs-1">
+          <div>
+                 &nbsp;
+        </div>        
+      </div>
+
+        <div class="col-xs-6">
+          <div>
+                  <img src="{{FILE_URL}}{{object.relate_pic}}"  style="height:90px;width:75px"/>
+        </div>        
+      </div>
+
+     
+
+    </div>
+
+ <div class="row">
+      &nbsp;
+      </div>
+</div>
+</div>
+
+
+<div class="row" style="text-align:center;">
+      <div id="jqPaginator" class="pagination"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

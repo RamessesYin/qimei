@@ -1,0 +1,220 @@
+<div class="row">
+	<div class="col-xs-6">
+
+		
+		
+		<div class="row"> 
+			<div class="col-xs-12">
+				<video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered" style="width:100%" controls >
+					<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href	="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+				</video>
+			</div>
+		</div>
+
+		
+		
+
+		<hr/>
+
+
+		<div class="row" style="text-align:center;">
+
+			<div class="btn-group" ng-show="curEditMode!=0 && curEditMode!=modes.TRACK_A_ING && curEditMode!=modes.TRACK_A && curEditMode!=modes.TRACK_E">
+				<button type="button" class="btn btn-default" ng-click="playControl.prev()">
+			  		<span class="glyphicon glyphicon-arrow-left"></span>
+			  	</button>
+			  	<button type="button" class="btn btn-default" ng-click="playControl.next()">
+			  		<span class="glyphicon glyphicon-arrow-right"></span>
+			  	</button>
+			  	<button type="button" class="btn btn-primary" ng-click="confirm()">确定</button>
+			  	<button type="button" class="btn btn-danger" ng-click="cancelEditMode()">取消</button>
+			</div>
+		
+
+			<div class="btn-group" ng-show="curEditMode==0 ">
+
+				<button type="button" class="btn btn-default" ng-click="playControl.prevSeg()">
+			  		上一段
+			  	</button>
+				<button type="button" class="btn btn-default" ng-click="playControl.prev()">
+			  		<span class="glyphicon glyphicon-arrow-left"></span>
+			  	</button>
+			  	<button type="button" class="btn btn-default" ng-click="playControl.next()">
+			  		<span class="glyphicon glyphicon-arrow-right"></span>
+			  	</button>
+			  	<button type="button" class="btn btn-default" ng-click="playControl.nextSeg()">
+			  		下一段
+			  	</button>
+
+			  	<div class="btn-group">
+    				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    					商品
+    				  	<span class="caret"></span>
+    				</button>
+    				<ul class="dropdown-menu">
+    				  	<li><a style="cursor:pointer;" ng-click="changeMode(modes.RELATE_E)">编辑</a></li>
+    				</ul>
+  				</div>
+  				<div class="btn-group">
+    				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    					物品
+    				  	<span class="caret"></span>
+    				</button>
+    				<ul class="dropdown-menu">
+    				  	<li><a style="cursor:pointer;" ng-click="changeMode(modes.TRACK_A)">添加</a></li>
+    				  	<li><a style="cursor:pointer;" ng-click="changeMode(modes.OBJECT_E)">编辑</a></li>
+    				  	<li><a style="cursor:pointer;" ng-click="deleteObj()">删除</a></li>
+    				</ul>
+  				</div>
+  				<div class="btn-group">
+    				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    					跟踪
+    				  	<span class="caret"></span>
+    				</button>
+    				<ul class="dropdown-menu">
+    				  	<li><a style="cursor:pointer;" ng-click="changeMode(modes.TRACK_E)">编辑</a></li>
+    				  	<li><a style="cursor:pointer;" ng-click="delCurFrame()">删除帧</a></li>
+    				  	<li><a style="cursor:pointer;" ng-click="delSegFrame()">删除段</a></li>
+    				</ul>
+  				</div>
+			</div>
+
+			<div class="btn-group" ng-show="curEditMode==modes.TRACK_A || curEditMode==modes.TRACK_A_ING ">
+
+				<button type="button" class="btn btn-default" ng-click="playControl.prev()" ng-hide="curEditMode==modes.TRACK_A_ING">
+			  		<span class="glyphicon glyphicon-arrow-left"></span>
+			  	</button>
+			  	<button type="button" class="btn btn-default" ng-click="playControl.next()" ng-hide="curEditMode==modes.TRACK_A_ING">
+			  		<span class="glyphicon glyphicon-arrow-right"></span>
+			  	</button>
+
+			  	<button type="button" class="btn btn-primary" ng-hide="curEditMode==modes.TRACK_A_ING" ng-click="changeMode(modes.TRACK_A_ING)">
+			  		开始创建
+			  	</button>
+			  	<button type="button" class="btn btn-danger" ng-hide="curEditMode==modes.TRACK_A_ING" ng-click="cancelEditMode()">
+			  		取消
+			  	</button>
+
+			  	<button type="button" class="btn btn-success" ng-show="curEditMode==modes.TRACK_A_ING" ng-click="addTrack()">
+			  		添加至跟踪序列
+			  	</button>
+
+
+			  	<button type="button" class="btn btn-primary" ng-show="curEditMode==modes.TRACK_A_ING" ng-click="saveAddedTrack()">
+			  		完成
+			  	</button>
+
+	
+			</div>
+
+			<div class="btn-group" ng-show="curEditMode==modes.TRACK_E">
+
+
+			  	<button type="button" class="btn btn-success"  ng-click="addTrack()">
+			  		保存至跟踪序列
+			  	</button>
+
+
+			  	<button type="button" class="btn btn-primary"  ng-click="saveEditedTrack()">
+			  		完成
+			  	</button>
+
+
+			  	
+
+	
+			</div>
+
+			
+
+			<div class="btn-group pull-right">
+			  	<div class="btn-group">
+    				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    					{{types[curType].name}}
+    				  	<span class="caret"></span>
+    				</button>
+    				<ul class="dropdown-menu">
+    				  	<li ng-repeat="item in types"><a style="cursor:pointer;" ng-click="changeType($index)">{{item.name}}</a></li>
+    				</ul>
+  				</div>
+			</div>
+		</div>
+
+
+
+		<div class="row">
+			<div class="row" ng-repeat="item in tracksInfo" ng-show="curTracks[$index]!=null" style="border: 5px solid {{tracksInfo[$index].color}};margin-bottom:5px;" ng-click="selectTrack($index)" ng-class="{true:'trackSelected',false:''}[$index==selectedTrackIdx]">
+				<div class="col-xs-2">
+					<img src="{{FILE_URL}}{{curTracks[$index].object_pic}}" style="height:70px;"/>
+				</div>
+				<div class="col-xs-2">
+					<img src="{{FILE_URL}}{{curTracks[$index].relate_pic}}" style="height:70px;"/>
+				</div>
+			</div>
+		</div>
+
+		<div id="imgCont"></div>
+
+	</div>
+
+	<div class="col-xs-6">
+		<div class="row" style="text-align:center;min-height:200px;">
+			<div class="col-xs-3 col-md-2" ng-repeat="item in curRelates" >
+				<img src="{{FILE_URL}}{{item.relate_pic}}" ng-click="selectRelate($index)" id="relate_pic_{{item.relate_id}}" style="max-height:100px;" />
+			</div>
+		</div>
+		<div class="row" style="text-align:center;">
+			<div id="rel_jqPaginator" class="pagination"></div>
+			<button class="btn btn-default pagination pull-right" ng-click="toRelManagerPage()">&nbsp&nbsp商品管理</button>
+		</div>
+
+
+		<div class="row" style="text-align:center;min-height:200px;">
+			<div class="col-xs-3 col-md-2" ng-repeat="item in curObjects">
+				<img src="{{FILE_URL}}{{item.object_pic}}" ng-click="selectObject($index)" id="object_pic_{{item.object_id}}" style="max-height:100px;" />
+			</div>
+		</div>
+		<div class="row" style="text-align:center;">
+			<div id="obj_jqPaginator" class="pagination"></div>
+			<button class="btn btn-default pagination pull-right" ng-click="toObjManagerPage()">&nbsp&nbsp物品管理</button>
+		</div>
+</div>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="newRelateModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" >
+               自动生成商品
+            </h4>
+         </div>
+         <div class="modal-body">
+           <form role="form">
+             <div class="form-group">
+                <label for="name">名字</label>
+                <input type="text" class="form-control"  ng-model="newRelate.name">
+             </div>
+             <div class="form-group">
+                <label for="name">关键字</label>
+                <input type="text" class="form-control"  ng-model="newRelate.abstract">
+             </div>
+          </form>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" 
+               data-dismiss="modal">关闭
+            </button>
+            <button type="button" class="btn btn-primary" ng-click="saveAddedTrack()">
+               保存
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+</div>

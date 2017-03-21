@@ -1,0 +1,78 @@
+/*.icon-search:before {
+	content: "\e986";
+	top: -2px;
+	left: 0px;
+	position: relative;
+}*/
+div.page{
+	position: relative;
+	width: 100%;
+	/*height: 500px;*/	
+}
+div.carousel{
+	/*height: 500px;*/
+}
+.carousel-inner .carousel-item>img {    
+    /*height: 560px;*/
+    width: auto;
+}
+.carousel-control.left {
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,0)),to(rgba(0,0,0,0))); 
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); 
+    background-image: -o-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);
+    background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+    background-repeat: repeat-x; 
+}
+.carousel-control.right {
+    right: 0;
+    left: auto;
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,0)),to(rgba(0,0,0,0)));
+    background-image: -webkit-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);
+    background-image: -o-linear-gradient(left,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);
+    background-image: linear-gradient(to right,rgba(0,0,0,0) 0,rgba(0,0,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+    background-repeat: repeat-x;
+}
+
+.carousel-inner .carousel-text{
+	position: absolute;
+	left: 15%;
+    top: 34%;
+	z-index: 9;
+	font-size: 36px;
+	cursor: pointer;
+}
+
+.carousel-inner .carousel-text h1.title{
+	font-family: 黑体;
+	font-size: 2.5rem;
+	color: #fff;
+}
+.carousel-inner .carousel-text hr.line{
+	height:2px;
+	border:none;
+	border-top:2px solid #fff;
+	margin-top: 0;
+	margin-bottom: 0.7rem;
+}
+.carousel-inner .carousel-text img.play{
+	height: 2.8rem;
+}
+@media only screen and (max-width: 480px){
+	.carousel-inner .carousel-text{
+		top: 24%;
+	}
+	.carousel-inner .carousel-text h1.title{
+		font-size: 1.5rem;
+	}
+	.carousel-inner .carousel-text hr.line{
+		margin-bottom: 0;
+	}
+	.carousel-inner .carousel-text img.play{
+		height: 2.2rem;
+	}
+}
+footer{
+    margin-top: 0;
+}

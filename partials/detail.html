@@ -1,0 +1,95 @@
+
+  <p style="font-family:黑体;font-weight:bold;color: #b2b2b2;" align="center">商品匹配</p>
+<div class="row">
+&nbsp;
+
+</div>
+  
+    <div class="row">
+      <div class="row">
+      <div class="col-xs-1">
+
+   <p style="font-family:楷体;font-weight:900;color: #87CEFF;">
+             &nbsp;&nbsp;&nbsp;商品
+        </p>  
+
+      </div>
+        <div class="col-xs-2">
+          <img src="{{FILE_URL}}{{ curItem.relate_pic}}"  style="height:180px ;width:120px"/>
+        </div>
+        <div class="col-xs-4">
+          <div class="abstract-list" style="">
+                    <p class="TV-title" style="">{{curItem.title}}</p>
+                    <p ng-show="itemType!=1">价格：{{curItem.price}}</p>
+                    <p ng-show="itemType!=1">产地:{{curItem.location}}</p>
+                    <p ng-show="itemType!=1">存量:{{curItem.inventory}}</p>
+
+                    <a ng-show="curItem.display==0" href="{{curItem.relate_url}}" target="_blank">链接</a>
+                    <a ng-show="curItem.display==1" href="{{FILE_URL}}{{curItem.relate_screen}}" target="_blank">截图</a>
+                   </div>
+        </div>        
+      </div>
+      <div class="row">
+      <div class="col-xs-1"></div>            
+      </div>
+      <div class="row">
+      &nbsp;
+      </div>
+
+
+    
+</div>
+<div>
+<div class="row" ng-show="state==1||itemType==1">
+
+    <p style="font-family:楷体;font-weight:900;color: #87CEFF;">
+              &nbsp;&nbsp;&nbsp;视频中出现位置
+        </p>  
+</div>
+
+
+<div class="row" ng-show="state==0&&itemType!=1">
+
+    <p style="font-family:楷体;font-weight:900;color: #87CEFF;">
+              &nbsp;&nbsp;&nbsp;正在匹配中
+        </p>  
+</div>
+
+
+<div class="row"></div>
+
+  <div class="row">
+      <div class="col-xs-6 col-md-2" ng-repeat="object in curObjects">
+      <div class="row">
+      <div class="col-xs-1"></div>
+          <img src="{{FILE_URL}}{{object.object_pic}}" ng-click="selectObject(object)" id="object_pic_{{object.object_id}}" style="height:120px;width:100px"/>
+    </div>
+
+</div>
+</div>
+
+
+<div class="row" style="text-align:right;">
+      <div id="jqPaginator" class="pagination"></div>
+    </div>
+
+
+        <div class="row">
+                  
+            <div class="col-xs-3"></div>
+            <div class="col-xs-3">
+            <div class="btn-group" data-toggle="buttons">   
+                  <button class="btn btn-primary" ng-click="upload()">确认</button>
+            </div>  
+            </div>
+
+
+            <div class="btn-group" data-toggle="buttons">   
+                  <button class="btn btn-primary" ng-click="del()">删除</button>
+            </div>  
+            </div>
+</div>
+
+
+      
+

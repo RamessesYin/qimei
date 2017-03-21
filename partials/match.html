@@ -1,0 +1,96 @@
+
+<div class="row">
+     <div class="btn-group pull-right">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              {{types[curType].name}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li ng-repeat="item in types"><a style="cursor:pointer;" ng-click="changeType($index)">{{item.name}}</a></li>
+            </ul>
+          </div>
+      </div>
+</div>
+
+<div class="row">
+
+      <div class="row">
+      <div class="col-xs-1"></div>
+             <div class="col-xs-3">
+              <p style="font-family:楷体;font-weight:900;color:  #87CEFF;text-align:center;">
+             物品商品匹配列表
+           </p>
+             </div>
+             <div class="col-xs-1">
+             <button class="btn btn-primary" ng-click="update()">提交</button>
+             </div>
+              <div class="col-xs-6">
+
+              <p style="font-family:楷体;font-weight:900;color: #CD69C9;text-align:center;">
+                商品列表
+        </p> 
+             </div>
+      </div>
+         <div class="col-xs-1"></div>
+  <div class="col-xs-3">
+ <div class="row" style="text-align:center;min-height:200px;">
+              <div class="col-xs-6" >
+
+
+        <div class="col-xs-12 col-md-12" ng-repeat="item in curObjects">
+        <div style="height:90px;width:90px;background-color: #CDC1C5;" ng-click="setObject(item,$index)" id="object_pic_{{item.object_id}}" >
+        <img src="{{FILE_URL}}{{item.object_pic}}" " style="height:90px;" />
+        </div>
+        <div class="row">
+      &nbsp;
+      </div>
+      </div>
+               
+               </div>
+
+
+               <div class="col-xs-6">
+                 <div class="col-xs-12 col-md-12" ng-repeat="item in curObjects">
+                         <div style="height:90px;width:90px;background-color: #FFFFF;border:solid 1px #000000">
+        <img src="{{FILE_URL}}{{item.relate_pic}}"  style="height:90px" />
+        </div>
+        <div class="row">
+      &nbsp;
+      </div>
+      </div>
+               </div>
+     
+    </div>
+    <div class="row" style="text-align:center;">
+      <div id="obj_jqPaginator" class="pagination"></div> 
+      
+    </div>
+
+
+  </div>
+  <div class="col-xs-1"></div>
+
+  <div class="col-xs-7">
+    <div class="row" style="text-align:center;min-height:200px;">
+      <div class="col-xs-3 col-md-2" ng-repeat="item in curRelates" >
+              <div style="height:90px;width:90px;background-color: #000000;" ng-click="selectRelate(item,$index)" id="relate_pic_{{item.relate_id}}">
+        <img src="{{FILE_URL}}{{item.relate_pic}}"  style="height:90px;"/>
+        </div>
+        <div class="row">
+      &nbsp;
+      </div>
+      </div>
+    </div>
+    <div class="row" style="text-align:center;">
+      <div id="rel_jqPaginator" class="pagination"></div>
+    </div>
+
+
+   
+</div>
+
+
+</div>
+
+

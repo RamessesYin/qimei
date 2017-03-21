@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <title>奇美</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="dependencies/jquery-1.12.2.min.js"></script>
+<script src="dependencies/bootstrap.min.js"></script>
+
+</head>
+<div class="container">
+<img src="" style="width: 100%;" id="showImg">
+</div>
+
+
+
+</body>
+
+
+<script type="text/javascript">
+
+function GetQueryString(name)
+
+{
+
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+
+     var r = window.location.search.substr(1).match(reg);
+
+     if(r!=null)return  unescape(r[2]); return null;
+
+}
+  
+$(document).ready(function()
+{
+  var imgUrl=GetQueryString('url');
+  if(imgUrl)
+  {
+    $("#showImg").attr('src',imgUrl);
+  }
+  
+})
+
+</script>
+
+
+
+
+</html>

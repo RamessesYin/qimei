@@ -1,0 +1,36 @@
+m-column img{
+	width: 213px; 
+	height: 213px; 
+	border-radius: 10px; 
+	border: 1px solid rgb(221, 221, 221);
+}
+
+m-column div{
+	width: 213px; 
+	height: 50px; 
+	border-radius: 0px 0px 10px 10px; 
+	z-index: 2; 
+	display: none; 
+	background-image: url(&quot;img/background/shadow.png&quot;);
+}
+
+html,body,.parent{height:100%;overflow:hidden;}
+body{background-image:url(../img/background/back.jpg);background-repeat:no-repeat;background-size:100%;}
+.top{position:absolute;top:0;left:0;right:0;height:50px;background-image:url(../img/background/back.jpg);background-repeat:no-repeat;background-size:100%;}
+.bottom{position:absolute;bottom:0;left:0;right:0;height:50px;background-image:url(../img/background/back.jpg);background-repeat:no-repeat;background-size:100%;background-position:0% 100%;}
+.clearfix:after{content:".";clear:both;visibility:hidden;}
+.content{position:absolute;top:50px;left:0;right:0;bottom:50px;overflow:auto;background-color:rgba(255,255,255,0.7)}
+.content .inner{display:block;width:80%;margin:20px auto;}
+.m-abstract .poster{float:left;width:25%;margin-right:20px;}
+.m-abstract img.title{width:100%;height:auto;border-radius:10px;}
+.m-abstract .abstract-list{overflow:hidden;margin:0px 20px}
+.m-abstract .abstract-list p{font:15px/20px arial, helvetica, verdana, tahoma, sans-serif}
+.m-tvlist{margin-left:-10px;}
+.m-tvlist .m-column{display:inline-block;width:5%;margin-bottom:10px;padding-left:10px;box-sizing:border-box;text-align:center;font-size: 15px;font-family: arial, helvetica, verdana, tahoma, sans-serif;}
+.m-tvlist .m-column span{display: block;background-color:rgba(255,255,255,0.3);border: 1px solid #dfdfdf;}
+.m-tvlist .m-column span:hover{background-color:white;color:#3399e0};
+.m-title{height:50px; margin-top:1em;}
+.m-title span{display:inline-block;width:30px;height:30px;border-radius:50%;background-position:40% 40%;vertical-align:middle;}
+.m-title p{font: bold 25px/30px YouYuan Microsoft YaHei;}
+.m-list{margin-left:-30px;margin-top:30px;}
+.m-list .m-column{display:inline-block;width:20%;padding-left:29px;margin-bottom:30px;box-sizing:border-box;}

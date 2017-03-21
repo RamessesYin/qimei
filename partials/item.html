@@ -1,0 +1,298 @@
+
+  <p style="font-family:黑体;font-weight:bold;color: #b2b2b2;" align="center">{{name}}商品列表</p>
+<div class="row">
+     &nbsp;&nbsp; &nbsp;&nbsp;
+            <button class="btn btn-primary" ng-click="showAddItemModal()">手动录入商品</button>
+            <button class="btn btn-primary" ng-click="showAddItemsModal()">批量录入商品</button>
+      <div class="btn-group pull-right">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              {{types[curType].name}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li ng-repeat="item in types"><a style="cursor:pointer;" ng-click="changeType($index)">{{item.name}}</a></li>
+            </ul>
+          </div>
+      </div>
+</div>
+<div class="row">
+&nbsp;
+
+</div>
+  
+    <div class="row">
+      <div class="col-xs-6 col-md-4" ng-repeat="item in curRelates">
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-4">
+          <img src="{{FILE_URL}}{{item.relate_pic}}" ng-click="selectImg($index)" id="relate_pic_{{item.id}}" style="height:180px;width:120px"/>
+        </div>
+        <div class="col-xs-6">
+          <div class="abstract-list" style="">
+                    <p class="TV-title" style="">{{item.title}}</p>
+                    <p  ng-show="itemType!=1">价格：{{item.price}}</p>
+                    <p ng-show="itemType!=1">产地:{{item.location}}</p>
+                    <p ng-show="itemType!=1">存量:{{item.inventory}}</p>
+                    <a ng-show="item.display==0" href="{{item.relate_url}}" target="_blank">链接</a>
+                    <a ng-show="item.display==1" href="{{FILE_URL}}{{item.relate_screen}}" target="_blank">截图</a>
+                   </div>
+        </div>        
+      </div>
+      <div class="row">
+      <div class="col-xs-1"></div>
+      <div class="btn-group" data-toggle="buttons">   
+                  <button class="btn btn-primary" ng-click="showEditItemModal(item,$index)">编辑</button>
+                  <button class="btn btn-primary" ng-click="delItem(item,$index)">删除</button>
+            </div>  
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="btn-group" data-toggle="buttons">   
+                  <button class="btn btn-primary" ng-click="showMore(item,$index)">查看</button>
+            </div> 
+
+      </div>
+      <div class="row">
+      &nbsp;
+      </div>
+
+    </div>
+
+    
+</div>
+
+<div class="row" style="text-align:center;">
+      <div id="jqPaginator" class="pagination"></div>
+    </div>
+
+<!-- 模态框（Modal） -->
+
+<div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               编辑商品信息
+            </h4>
+         </div>
+         <div class="modal-body">
+          <form class="form-horizontal" role="form">
+
+
+
+
+     <div class="form-group">
+      <label for="lastname" class="col-sm-2 control-label">图片</label>
+      <div class="col-sm-6">
+         <input type="text" class="form-control"  ng-model="editItemInfo.relate_pic_path">
+      </div>
+              <div class="col-sm-2">
+               <input type="file" value="relate_pic" id="relate_pic" />
+               </div>
+    </div>
+      <div class="form-group">
+                 <label for="lastname" class="col-sm-2 control-label">标题:</label>
+                 <div class="col-sm-8">
+                <input type="text" class="form-control"  ng-model="editItemInfo.title">
+                </div>
+             </div>
+             <div class="form-group">
+                 <label for="lastname" class="col-sm-2 control-label">关键词:</label>
+                 <div class="col-sm-8">
+                <textarea class="form-control"  ng-model="editItemInfo.abstract"></textarea>
+                </div>
+             </div>
+              <div class="form-group" ng-show="itemType!=1">
+                 <label for="lastname" class="col-sm-2 control-label" >价格:</label>
+                 <div class="col-sm-8">
+                <input type="text" class="form-control"  ng-model="editItemInfo.price">
+                </div>
+             </div>
+              <div class="form-group" ng-show="itemType!=1">
+                 <label for="lastname" class="col-sm-2 control-label">产地:</label>
+                 <div class="col-sm-8">
+                <input type="text" class="form-control"  ng-model="editItemInfo.location">
+                </div>
+             </div>
+              <div class="form-group" ng-show="itemType!=1">
+                <label for="lastname" class="col-sm-2 control-label">存货:</label>
+                <div class="col-sm-8">
+                <input type="text" class="form-control"  ng-model="editItemInfo.inventory">
+                </div>
+             </div>
+              <div class="form-group">
+                 <label for="lastname" class="col-sm-2 control-label">显示:</label>
+                 <div class="col-sm-8">
+                <input type="text" class="form-control"  ng-model="editItemInfo.display">
+                </div>
+             </div>
+              <div class="form-group">
+                 <label for="lastname" class="col-sm-2 control-label">链接:</label>
+                 <div class="col-sm-8">
+                <input type="text" class="form-control"  ng-model="editItemInfo.relate_url">
+                </div>
+             </div>
+               <div class="form-group">
+                <label for="lastname" class="col-sm-2 control-label">截图:</label>
+                <div class="col-sm-8">
+                <input type="text" class="form-control"  ng-model="editItemInfo.relate_screen">
+                </div>
+             </div>
+             
+  </form>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" 
+               data-dismiss="modal">关闭
+            </button>
+            <button type="button" class="btn btn-primary" ng-click="updateItem(editItemInfo)">
+               保存
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+</div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+              添加商品
+            </h4>
+         </div>
+         <div class="modal-body">
+            <form class="form-horizontal" role="form">
+
+
+
+
+     <div class="form-group" ng-show="itemType!=1">
+      <label for="lastname" class="col-sm-2 control-label">图片</label>
+    
+              <div class="col-sm-2">
+               <input type="file" value="relate_pic" id="relate_Pic" />
+               </div>
+    </div>
+
+        <div class="form-group">
+                 <label for="lastname" class="col-sm-2 control-label">标题:</label>
+                 <div class="col-sm-8">
+                <input type="text" class="form-control"  ng-model="addItemInfo.title">
+                </div>
+             </div>
+
+
+             <div class="form-group">
+                 <label for="lastname" class="col-sm-2 control-label">关键词:</label>
+                 <div class="col-sm-8">
+                <textarea class="form-control"  ng-model="addItemInfo.abstract"></textarea>
+                </div>
+             </div>
+              <div class="form-group" ng-show="itemType!=1">
+                 <label for="lastname" class="col-sm-2 control-label">价格:</label>
+                 <div class="col-sm-8">
+                <input type="text" class="form-control"  ng-model="addItemInfo.price">
+                </div>
+             </div>
+              <div class="form-group" ng-show="itemType!=1">
+                 <label for="lastname" class="col-sm-2 control-label">产地:</label>
+                 <div class="col-sm-8">
+                <input type="text" class="form-control"  ng-model="addItemInfo.location">
+                </div>
+             </div>
+              <div class="form-group" ng-show="itemType!=1">
+                <label for="lastname" class="col-sm-2 control-label">存货:</label>
+                <div class="col-sm-8">
+                <input type="text" class="form-control"  ng-model="addItemInfo.inventory">
+                </div>
+             </div>
+              <div class="form-group" ng-show="itemType!=1">
+                 <label for="lastname" class="col-sm-2 control-label">显示:</label>
+                 <div class="col-sm-8">
+                <input type="text" class="form-control"  ng-model="addItemInfo.display">
+                </div>
+             </div>
+              <div class="form-group" ng-show="itemType!=1">
+                 <label for="lastname" class="col-sm-2 control-label">链接:</label>
+                 <div class="col-sm-8">
+                <input type="text" class="form-control"  ng-model="addItemInfo.relate_url">
+                </div>
+             </div>
+               <div class="form-group" ng-show="itemType!=1">
+                <label for="lastname" class="col-sm-2 control-label">截图:</label>
+                  <div class="col-sm-2">
+               <input type="file" value="Relate_pic" id="Relate_pic" />
+               </div>
+             </div>
+               </form>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" 
+               data-dismiss="modal">关闭
+            </button>
+            <button type="button" class="btn btn-primary" ng-click="addItem(addItemInfo)">
+               保存
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+</div>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="addItemsModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" >
+               批量添加商品
+            </h4>
+         </div>
+          <div class="modal-body">
+           <form role="form">
+             <div class="form-group">
+                <label for="name">文件</label>
+                <input type="text" class="form-control"  ng-model="addItemsInfo.taobao_file">
+             </div>
+             
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" 
+               data-dismiss="modal">关闭
+            </button>
+            <button type="button" class="btn btn-primary" ng-click="addItems(addItemsInfo)">
+               保存
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

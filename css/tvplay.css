@@ -1,0 +1,305 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{height:100%;}
+body{
+	!*background-image:url(../image/background/back.jpg);*!
+    background-color: #bdc3c7;
+	!*background-color: #000;*!
+	!*background-repeat:no-repeat;*!
+	!*background-size:cover;*!
+	!*overflow-x: hidden;*!
+}*/
+
+/*.fadeIn {
+    position: relative;
+    width: 100%;    
+    top: 0;    
+    left: 0;    
+    background: #ddd;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    z-index: 999;
+}*/
+/*.videoContainer{
+	position: relative;
+}*/
+
+ 
+   
+@-webkit-keyframes twinkling {  
+    
+    0% {
+        opacity: 0;        
+    }
+    50% {
+        opacity: 1;        
+    }
+    100% {
+        opacity: 0;      
+     }
+ }
+    
+@-webkit-keyframes rotate{
+	from{-webkit-transform:rotate(0deg)}
+	to{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes rotate{
+	from{-moz-transform:rotate(0deg)}
+	to{-moz-transform:rotate(360deg)}
+}
+@-ms-keyframes rotate{
+	from{-ms-transform:rotate(0deg)}
+	to{-ms-transform:rotate(360deg)}
+}
+@-o-keyframes rotate{
+	from{-o-transform:rotate(0deg)}
+	to{-o-transform:rotate(360deg)}
+}
+
+.img-container{	
+	position: absolute; 
+	width: 45px; 	
+	height: 100%; 
+	top: 0; 
+	right: 15%;	
+}
+img#closeVideo{
+	width: 20px; 
+	position: relative; 
+	display: block; 	
+	float: right;	
+}
+img#closeVideo:hover{
+	animation: 2s linear 0s normal none infinite rotate;
+	-webkit-animation:2s linear 0s normal none infinite rotate;
+}
+img#tag{
+    	width: 45px; 
+    	position: absolute; 
+    	display: block;     	
+    	float: right;
+    	top: 70%;    	
+    	animation: twinkling 5s ease-in-out infinite;
+    }
+@media only screen and (max-width: 480px){
+	.img-container{		
+		width: 35px; 		
+		top: 2%; 
+		right: 0;		
+	}	
+	img#tag{
+    	width: 35px;
+    }
+} 
+@media only screen and (max-width: 720px) and (min-width: 481px){
+		.img-container{		
+			width: 40px;
+			top: 0%; 
+			right: 10%;
+		}		
+		img#tag{
+	    	width: 40px; 
+	    }
+}   
+
+.overlay {
+    background-color: #222222;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px  #626262 solid;      
+    display: none;
+}
+    /*.container {
+        height: 100%;
+        float: left;
+        display: inline;
+    } */
+    .container .imgsrc {
+        height: 90%;
+        top: 1%;
+        float: left;
+        margin-top: 5px;
+        margin-left: -10px;
+    }
+
+    .container span.glyphicon{  
+        margin-left: 11px;
+        color:white;
+    }
+   
+   .slide{
+ 	position: absolute;
+     	width: 20px;
+     	display: none;
+        
+    }
+    .fullScreenBackground{
+	background-color:black;
+	margin-top: 0;
+}
+.full-screen-player-control{
+	 margin-top: -55px;
+	 opacity: .5;
+}
+
+.showImg{
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+
+/*图片水平切换*/
+.slidimg-container{
+      /*position: absolute;*/
+      /*height:90%;*/
+      width: 100%;
+      /*text-align:center;*/
+      /*width: 70px;*/
+      left: 0%
+      right: 0%;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .slider
+    {
+      width:550px;
+      height:110px;
+      /*width:70px;*/
+      /*height:100%;*/
+      overflow:hidden;
+      display: inline-block; 
+      /*margin-left: -5px;
+      margin-right: -5px;*/
+      /*background-color: #000;*/
+      opacity: 1;
+    }
+
+    
+    .imgList
+    {
+      padding:0;
+      list-style:none;
+       width:560px;
+      /*width:70px;*/
+      overflow:hidden;
+      transition: all 1s ease-in-out;
+    }
+    ul.imgList{
+        /*width: 70px;*/
+        width: 9999px;
+    }
+    .imgList li
+    {
+      float:left;
+      left: 70px;
+
+    }
+    ul.imgList li.img-li img.imgsrc{
+        /*opacity: 0.4;*/
+        /*border: none;*/
+    }
+    ul.imgList li.img-li img.imgsrc:hover
+    {
+      opacity: 1;
+      border: 2px #3cc solid;
+    }
+    .imgList li img{
+        width: 60px;
+        height: 75px;
+        cursor: pointer;
+        padding-left: 5px;
+    }
+    li.img-li{
+        margin-left: 5px;
+    }
+    #slider-nav
+    {
+      /*margin-top:30px;*/
+      text-align:center;
+    }   
+    div.slider-btn{
+        position: relative;
+        width: 50px;
+        height: 110px;
+        overflow: hidden;
+        cursor: pointer;
+        display: inline-block;
+        /*background-color: #000;*/
+      opacity: 0.9;
+    }
+    div.slider-btn img{
+        transform:rotate(180deg);
+        -ms-transform:rotate(180deg); /* Internet Explorer */
+        -moz-transform:rotate(180deg); /* Firefox */
+        -webkit-transform:rotate(180deg); /* Safari ºÍ Chrome */
+        -o-transform:rotate(180deg); /* Opera */
+        position: relative;
+        top:20px;
+        height: 70px;
+        width: 100%;
+
+    }
+    img.btnright{
+        right: 20px;
+        top:-50%;
+        transform: translate(500%,-50%);
+        -ms-transform: translate(50%,-50%); 
+        -webkit-transform: translate(20px,-50%); 
+    }
+    img.btnleft{
+        left:20px;
+        top:50%;
+        transform: translate(-4%,-50%);
+        -ms-transform: translate(-4%,-50%); 
+        -webkit-transform: translate(-4%,-50%); 
+    }
+
+    #contaimer iframe{
+        z-index: 99;
+    }
+
+
+    @media only screen and (max-width: 640px) {
+        .slider{
+            width: 86%;
+        }
+        div.slider-btn{
+            width: 7%;
+        }
+        div.slider-btn img{
+            /*width: 270%;*/
+        }
+        ul.imgList{
+            margin-left: 100%;
+        }
+        
+    }
+
+    @media only screen and (min-width: 641px){
+        ul.imgList{
+            /*margin-left: 100%;*/
+        }
+
+        img.btnright{
+            transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%); /* IE 9 */
+            -webkit-transform: translate(-50%,-50%); /* Safari and Chrome */
+        }
+        
+    }
+    footer{
+        margin-top: 0;
+    }
+/*
+
+:-webkit-full-screen .fadeIn {
+            width: 100%;
+            height: 100%;
+        }
+:-moz-full-screen .fadeIn{
+            width: 100%;
+            height: 100%;
+        }
